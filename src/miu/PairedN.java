@@ -29,7 +29,7 @@ public class PairedN {
 			return 0;
 			}
 
-       for (int i = 0; i < a.length; i++) {
+       for (int i = 0; i < a.length-1; i++) {
            for (int j = i + 1; j < a.length; j++) {
                if (a[i] + a[j] == n && i + j == n) {
                    return 1;
