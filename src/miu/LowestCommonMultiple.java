@@ -6,8 +6,16 @@ that both x and y are factors of z.
 
 public class LowestCommonMultiple {
     public static void main(String[] args) {
-        System.out.println(smallestCommon(7, 14));
-        System.out.println(smallestCommon_Improved(7, 14));
+
+        long preTime=System.currentTimeMillis();
+        System.out.println(smallestCommon(7, 10000000));
+        long postTime=System.currentTimeMillis();
+        System.out.println("Time taken to compute (smallestCommon) in milliseconds -> "+(postTime-preTime));
+
+        preTime=System.currentTimeMillis();
+        System.out.println(smallestCommon_Improved(7, 10000000));
+        postTime=System.currentTimeMillis();
+        System.out.println("Time taken to compute (smallestCommon_Improved) in milliseconds -> "+(postTime-preTime));
     }
 
     public static int smallestCommon(int x, int y) {
