@@ -26,3 +26,8 @@ hs_err_pid*
 .classpath
 .project
 .idea
+.settings
+bin/.settings
+bin/META-INF
+bin/README.md
+bin/sources_sample-java-interview-questions.iml

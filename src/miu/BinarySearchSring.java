@@ -9,7 +9,7 @@ Implement the following strategy: Given String s and char c: Let len denote the 
  - Else if c > ch, return true if c is in the right half of s, false otherwise
 */
 
-public class BinarySearch {
+public class BinarySearchSring {
 
 	public static void main(String[] args) {
 		boolean result = search("abcdefg", 'd');
