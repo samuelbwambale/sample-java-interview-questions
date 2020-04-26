@@ -32,12 +32,22 @@ public class FibonacciSeries {
         }
 
     }
-
+    
     /*
      * By recursion
      */
+    
+    static int generateFibonacciByRecursion(int n) {
+    	if (n < 0) return -1;
+    	if(n == 0 || n == 1) return n;
+        return generateFibonacciByRecursion(n-1) + generateFibonacciByRecursion(n-2);
+        }
+
+    /*
+     * With while loop
+     */
     static int n1=0, n2=1, n3=0;
-    static void generateFibonacciByRecursion(int n) {
+    static void generateFibonacciWhileLoop(int n) {
         while(n>0){
             n3 = n1 + n2;
             n1 = n2;
