@@ -19,7 +19,7 @@ on left side of middle element and ignore the right sub array. If z is greater t
 public class BinarySearchArray {
 
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8};
         long preTime=System.currentTimeMillis();
         System.out.println(find(arr, 9));
         long postTime=System.currentTimeMillis();

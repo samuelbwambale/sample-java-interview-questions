@@ -4,7 +4,7 @@ package miu;
 that both x and y are factors of z.
 */
 
-public class LowestCommonMultiple {
+public class LCM_LowestCommonMultiple {
     public static void main(String[] args) {
 
         long preTime=System.currentTimeMillis();
