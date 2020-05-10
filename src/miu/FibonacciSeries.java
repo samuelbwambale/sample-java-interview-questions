@@ -10,12 +10,13 @@ import java.util.Map;
 public class FibonacciSeries {
 
     public static void main(String[] args) {
-//        generateFibonacciSeries(8);
-        System.out.println(generateFibonacci(9));
-        System.out.println(generateFibonacciByRecursion(9));
-        System.out.println(generateFibonacciWhileLoop(9));
-        System.out.println(fibWithDynamicProg(9));
-        System.out.println(fibRecursionWithMemoization(9));
+        generateFibonacciSeries(5);
+        System.out.println();
+        System.out.println(generateFibonacci(5));
+        System.out.println(calculateFibonacciByRecursion(5));
+        System.out.println(calculateFibonacciWhileLoop(5));
+        System.out.println(fibWithDynamicProg(5));
+        System.out.println(fibRecursionWithMemoization(5));
     }
 
     static void generateFibonacciSeries(int n) {
@@ -41,16 +42,16 @@ public class FibonacciSeries {
      * By recursion
      */
     
-    static int generateFibonacciByRecursion(int n) {
+    static int calculateFibonacciByRecursion(int n) {
     	if (n < 0) return -1;
     	if(n == 0 || n == 1) return n;
-        return generateFibonacciByRecursion(n-1) + generateFibonacciByRecursion(n-2);
+        return calculateFibonacciByRecursion(n-1) + calculateFibonacciByRecursion(n-2);
         }
 
     /*
      * With while loop
      */
-    static int generateFibonacciWhileLoop(int n) {
+    static int calculateFibonacciWhileLoop(int n) {
         int num1 = 0, num2 = 1, sumOfPrevTwo = 0;
 
         int i=1;
@@ -66,21 +67,21 @@ public class FibonacciSeries {
 
     static int fibWithDynamicProg(int n) {
         /* Declare an array to store Fibonacci numbers. */
-        int f[] = new int[n+2]; // 1 extra to handle case, n = 0
+        int arr[] = new int[n+2]; // 1 extra to handle case, n = 0
         int i;
 
         /* 0th and 1st number of the series are 0 and 1*/
-        f[0] = 0;
-        f[1] = 1;
+        arr[0] = 0;
+        arr[1] = 1;
 
         for (i = 2; i <= n; i++)
         {
        /* Add the previous 2 numbers in the series
          and store it */
-            f[i] = f[i-1] + f[i-2];
+            arr[i] = arr[i-1] + arr[i-2];
         }
 
-        return f[n];
+        return arr[n];
     }
 
 

@@ -24,11 +24,14 @@ public class IsPrime {
      */
 
     // Worst case O(sqrt(n))
-    // Avg case O(sqrt(n)/log(n))
     static int isPrime(int n) {
         if(n < 2){
             return 0;
         }
+
+        if (n <= 3)
+            return 1;
+
         for (int i = 2; i<= (int)Math.sqrt(n); i++) {
             if ((n % i) == 0) {
                 return 0;
@@ -37,11 +40,35 @@ public class IsPrime {
         return 1;
     }
 
+    // Worst case O(sqrt(n))
+    static boolean isPrimeImproved(int n)
+    {
+        // Corner cases
+        if (n <= 1)
+            return false;
+        if (n <= 3)
+            return true;
+
+        // This is checked so that we can skip
+        // middle five numbers in below loop
+        if (n % 2 == 0 || n % 3 == 0)
+            return false;
+
+        for (int i = 5; i * i <= n; i = i + 6)
+            if (n % i == 0 || n % (i + 2) == 0)
+                return false;
+
+        return true;
+    }
+
     // Running time: o(n)
     public static int isPrime2(int n) {
-        if(n < 2){
+        if(n <= 1){
             return 0;
         }
+
+        if (n == 2 || n == 3) return 1;
+
         for(int i = 2; i < n; i++){
             if(n%i == 0){
                 return 0;
