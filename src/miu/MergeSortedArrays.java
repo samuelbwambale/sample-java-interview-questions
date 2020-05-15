@@ -13,6 +13,7 @@ public class MergeSortedArrays {
 
     }
 
+    // Running time of O(n)
     static int[] merge(int[] arr1, int[] arr2) {
         int i = 0, j = 0, k = 0;
         int[] mergedArray = new int[arr1.length + arr2.length];
