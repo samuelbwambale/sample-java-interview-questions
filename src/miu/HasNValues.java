@@ -25,20 +25,20 @@ public class HasNValues {
     }
 
     public static int hasNValues(int[] a, int n) {
-        HashMap<Integer, Integer> distinct = new HashMap<Integer, Integer>();
 
-        int result = 0;
+        if (a.length < n)
+            return 0;
+
+        HashMap<Integer, Integer> distinct = new HashMap<Integer, Integer>();
         for (int i = 0; i < a.length; i++) {
             if (!distinct.containsKey(a[i])) {
                 distinct.put(a[i], a[i]);
             }
         }
         if (distinct.size() == n) {
-            result = 1;
+            return 1;
         }
-        else result = 0;
-
-        return result;
+        return 0;
 
     }
 }
