@@ -1,12 +1,12 @@
 package miu;
 
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-/* Name of the class has to be "Main" only if the class is public. */
-class PermutationsWithReplacementInt {
+class SquareUp {
 
     private static void permutation(int[] perm, int pos, int[] arr, List<int[]> listOfArrays) {
         if (pos == perm.length) {
@@ -86,3 +86,4 @@ class PermutationsWithReplacementInt {
     }
 
 }
+

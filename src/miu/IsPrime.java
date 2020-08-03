@@ -7,8 +7,8 @@ A prime is a natural number greater than 1 that has no positive divisors other t
 public class IsPrime {
 
     public static void main(String[] args) {
-        System.out.println(isPrime(1));
-        System.out.println(isPrime2(1));
+        System.out.println(isPrime(17));
+        System.out.println(isPrime2(4));
     }
 
     /*
@@ -69,7 +69,7 @@ public class IsPrime {
 
         if (n == 2 || n == 3) return 1;
 
-        for(int i = 2; i < n; i++){
+        for(int i = 2; i*i <= n; i++){
             if(n%i == 0){
                 return 0;
             }
