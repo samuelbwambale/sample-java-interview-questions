@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 /*
-Given an array [2, 5, 3,-4, -2, 7, 1, 0], k =3 return the maximum of the minimums
+Find the maximum of the minimums for the segments of k
  */
 public class MaxOfMins {
     public static void main(String[] args) {
@@ -66,6 +66,22 @@ public class MaxOfMins {
             max = max > min ? max : min;
         }
 
+        return max;
+    }
+
+    static int maxOfMinimumsDanny(int[] array,int k)
+    {
+        int end = 0;
+        int max = array[0];
+        for(int i = 0;i < array.length;i++)
+        {
+            int currMin = array[i];
+            for(int j = i+1;j < i + k;j++)
+            {
+                currMin = Math.min(array[j],currMin);
+            }
+            max = Math.max(max,currMin);
+        }
         return max;
     }
 }
