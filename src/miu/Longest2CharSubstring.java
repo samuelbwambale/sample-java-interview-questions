@@ -24,11 +24,11 @@ public class Longest2CharSubstring {
     public static int numberOfUniques(String str){
         if(str.length() == 0) return 0;
 
-        Map<Character, Integer> map = new HashMap<>();
+        Set<Character> map = new HashSet<>();
         String uniques = "";
         for(int i = 0; i < str.length(); i++) {
-            if(!map.containsKey(str.charAt(i))) {
-                map.put(str.charAt(i), 1);
+            if(!map.contains(str.charAt(i))) {
+                map.add(str.charAt(i));
                 uniques += str.charAt(i);
             }
         }
