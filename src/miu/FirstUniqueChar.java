@@ -17,7 +17,16 @@ import java.util.Map;
 
 public class FirstUniqueChar {
     public static void main(String[] args) {
-        System.out.println(firstNonRepeatedCharacter("javaj"));
+        String str = "vavalu";
+        System.out.println(firstNonRepeatedCharacter(str));
+        String left = str.substring(0,2);
+        String right = str.substring(2+1);
+        System.out.println(left);
+        System.out.println(right);
+
+        System.out.println();
+        System.out.println(firstUniqueCharacter2(str));
+
     }
 
     /* *
@@ -28,7 +37,12 @@ public class FirstUniqueChar {
             * Since we are going through String from first to last character,
             * when count for any character is 1, we break, it's the first
             * non repeated character. Here order is achieved by going
-            * through String again. */
+            * through String again.
+
+            Time complexity : O(N) since we go through the string of length N two times.
+            Space complexity : O(1) because English alphabet contains 26 letters.
+
+          */
 
     public static char firstNonRepeatedCharacter(String word) {
         Map<Character, Integer> map = new HashMap<>();
@@ -48,7 +62,34 @@ public class FirstUniqueChar {
                 return c;
             }
         }
+        return 'X';
+    }
+
+    private static char firstUniqueCharacter2(String str) {
+        int len = str.length();
+        if(len == 1) return str.charAt(0);
+
+        for (int i = 0; i < len; i++) {
+            if(i == 0) {
+                String substring = str.substring(1);
+                if(substring.indexOf(str.charAt(i)) == -1) return str.charAt(i);
+            }
+            if(i < len -1) {
+                String left = str.substring(0,i);
+                String right = str.substring(i+1);
+                if(left.indexOf(str.charAt(i)) == -1 && right.indexOf(str.charAt(i)) == -1)
+                    return str.charAt(i);
+            }
+            if(i == len-1) {
+                String substring = str.substring(0,len-1);
+                if(substring.indexOf(str.charAt(len-1)) == -1)
+                    return str.charAt(len-1);
+
+            }
+
+        }
         return 'x';
+
     }
 
 

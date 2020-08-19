@@ -19,12 +19,12 @@ public class Testing {
         assertEquals('i', miu.FirstUniqueChar.firstNonRepeatedCharacter("simplest"));
     }
 
-    @Test
-    public void testRemoveEvenOccurance() {
-        assertEquals("abca", miu.EvenOccuranceRemoved.removeEvenOccurance("aabbccaa"));
-        assertEquals("a1b2c", miu.EvenOccuranceRemoved.removeEvenOccurance("a1ab2bc1c"));
-        assertEquals("abcabc", miu.EvenOccuranceRemoved.removeEvenOccurance("abcabcabccba"));
-    }
+//    @Test
+//    public void testRemoveEvenOccurance() {
+//        assertEquals("abca", miu.EvenOccuranceRemoved.removeEvenOccurance("aabbccaa"));
+//        assertEquals("a1b2c", miu.EvenOccuranceRemoved.removeEvenOccurance("a1ab2bc1c"));
+//        assertEquals("abcabc", miu.EvenOccuranceRemoved.removeEvenOccurance("abcabcabccba"));
+//    }
 
     @Test
     public void testLongest2CharacterSubstring() {

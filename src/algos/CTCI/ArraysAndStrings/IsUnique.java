@@ -3,7 +3,9 @@ package algos.CTCI.ArraysAndStrings;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-
+/*
+Determine if a string has all unique characters
+ */
 public class IsUnique {
     public static void main(String[] args) {
         System.out.println(isUnique("abcd"));
@@ -51,7 +53,7 @@ public class IsUnique {
         }
         return true;
     }
-
+    // Need to be sure if the string is ASCII or Unicode. I will assume the character set is ASCII
     public static boolean isUnique3(String str) {
         int len = str.length();
         if(len == 0) return true;
