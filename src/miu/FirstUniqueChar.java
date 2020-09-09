@@ -13,16 +13,20 @@ should return:
  */
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class FirstUniqueChar {
     public static void main(String[] args) {
-        String str = "vavalu";
+        String str = "aabbkkllnmmmo";
         System.out.println(firstNonRepeatedCharacter(str));
-        String left = str.substring(0,2);
-        String right = str.substring(2+1);
-        System.out.println(left);
-        System.out.println(right);
+//        String left = str.substring(0,2);
+//        String right = str.substring(2+1);
+//        System.out.println(left);
+//        System.out.println(right);
 
         System.out.println();
         System.out.println(firstUniqueCharacter2(str));
@@ -41,7 +45,6 @@ public class FirstUniqueChar {
 
             Time complexity : O(N) since we go through the string of length N two times.
             Space complexity : O(1) because English alphabet contains 26 letters.
-
           */
 
     public static char firstNonRepeatedCharacter(String word) {
@@ -56,13 +59,34 @@ public class FirstUniqueChar {
             }
         }
         // since HashMap doesn't maintain order, going through string again
-        for (int i = 0; i < word.length(); i++) {
-            char c = word.charAt(i);
-            if (map.get(c) == 1) {
-                return c;
-            }
-        }
-        return 'X';
+//        for (int i = 0; i < word.length(); i++) {
+//            char c = word.charAt(i);
+//            if (map.get(c) == 1) {
+//                return c;
+//            }
+//        }
+
+
+//        List<Character> list = word.chars()
+//                .mapToObj(ch -> (char)ch)
+//                .filter(i -> map.get(i) == 1)
+//                .collect(Collectors.toList());
+//        return list.get(0) != null ? list.get(0) : 'x';
+
+//        word.chars()
+//                .mapToObj(ch -> (char) ch)
+//                .forEach(c -> System.out.print(c + " "));
+
+        Optional<Character> firstUnique = word.chars()
+                .mapToObj(ch -> (char)ch)
+                .filter(i -> map.get(i) == 1)
+                .findFirst();
+        if(firstUnique.isPresent())
+            return firstUnique.get();
+        else return 'x';
+
+
+
     }
 
     private static char firstUniqueCharacter2(String str) {
@@ -81,11 +105,12 @@ public class FirstUniqueChar {
                     return str.charAt(i);
             }
             if(i == len-1) {
-                String substring = str.substring(0,len-1);
-                if(substring.indexOf(str.charAt(len-1)) == -1)
-                    return str.charAt(len-1);
-
+                String substring = str.substring(0, len - 1);
+                if (substring.indexOf(str.charAt(len - 1)) == -1)
+                    return str.charAt(len - 1);
             }
+
+
 
         }
         return 'x';

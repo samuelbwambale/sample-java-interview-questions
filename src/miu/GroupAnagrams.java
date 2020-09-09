@@ -40,7 +40,8 @@ class GroupAnagrams {
         for(String s : strs) {
             char[] array = s.toCharArray();
             Arrays.sort(array);
-            String sortedString = new String(array);
+//            String sortedString = new String(array);
+            String sortedString = Arrays.toString(array);
 
             if(!map.containsKey(sortedString))
                 map.put(sortedString, new ArrayList<>());
@@ -48,13 +49,10 @@ class GroupAnagrams {
         }
 
         List<List<String>> solution = new ArrayList<>();
-        for(Map.Entry<String, List<String>> entry : map.entrySet()) {
-            solution.add(entry.getValue());
-        }
+        map.values().stream().forEach(list -> solution.add(list));
         return solution;
 
         // return new ArrayList(map.values());
-
     }
 
     public static List<List<String>> groupAnagrams2(String[] strs) {

@@ -1,4 +1,4 @@
-package algos.fja;
+package miu;
 
 public class MinAddToMakeValid {
     public static void main(String[] args) {

@@ -2,6 +2,7 @@ package algos.fja;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 public class SubArrays {
@@ -11,14 +12,26 @@ public class SubArrays {
         System.out.println();
         System.out.println("lengthOflongestSubArraySumsToK");
         System.out.println("Solution " + lengthOflongestSubArraySumsToK(Arrays.asList(3,4,7,2,-3,1,4,2), 7));
-
-        System.out.println();
-        System.out.println("longestSubArraySumsToK");
-        System.out.println("Solution " + longestSubArraySumsToK(Arrays.asList(3,4,7,2,-3,1,4,2), 7));
-
+//
+//        System.out.println();
+//        System.out.println("longestSubArraySumsToK");
+//        System.out.println("Solution " + longestSubArraySumsToK(Arrays.asList(3,4,7,2,-3,1,4,2), 7));
+//
         System.out.println();
         System.out.println("lengthOflongestSubArraySumsToK - Danny");
         System.out.println(longestSubArrDanny(new int[] {3,4,7,2,-3,1,4,2},7));
+
+        System.out.println();
+        System.out.println("longestSubArraySumsToK_2");
+        System.out.println(longestSubArraySumsToK_2(new int[] {3,4,7,2,-3,1,4,2},7));
+
+        System.out.println();
+        System.out.println("numberOfSubarraySumToK");
+        System.out.println(numberOfSubarraySumToK(new int[] {3,4,7,2,-3,1,4,2},7));
+
+        System.out.println();
+        System.out.println("numberOfSubarraySumToK2");
+        System.out.println(numberOfSubarraySumToK2(new int[] {3,4,7,2,-3,1,4,2},7));
     }
 
     public static void generateSubArrays(List<Integer> arr) {
@@ -50,7 +63,7 @@ maxLength(int[] arr, k) {
                 cumSum += arr.get(j);
                 if(cumSum - tempSum <= k) {
                     int tempLen = j - i + 1;
-                    System.out.println("Possible solution: " + tempLen);
+//                    System.out.println("Possible solution: " + tempLen);
                     maxLen = maxLen > tempLen ? maxLen : tempLen;
                 }
             }
@@ -58,26 +71,6 @@ maxLength(int[] arr, k) {
         return maxLen;
     }
 
-    public static List<Integer> longestSubArraySumsToK(List<Integer> arr, int k) {
-        int cumSum = 0;
-        List<Integer> solution = new ArrayList<>();
-        for (int i = 0; i < arr.size(); i++) {
-            int tempSum = cumSum;
-            for (int j = i; j < arr.size(); j++) {
-                cumSum += arr.get(j);
-                if(cumSum - tempSum <= k) {
-                    List<Integer> tempArray = new ArrayList<>();
-                    for (int l = i; l <=j ; l++) {
-                        tempArray.add(arr.get(l));
-                    }
-                    System.out.println("Possible solution: " + tempArray);
-                    solution = solution.size() > tempArray.size() ? solution : tempArray;
-                }
-            }
-        }
-
-        return solution;
-    }
 
     public static int longestSubArrDanny(int[] array,int k)
     {
@@ -96,5 +89,63 @@ maxLength(int[] arr, k) {
             right++;
         }
         return result;
+    }
+
+    public static int longestSubArraySumsToK_2(int[] arr, int k) {
+        int currentMaxLength = Integer.MIN_VALUE;
+        List<Integer> result = new ArrayList<>();
+        for (int i = 0; i < arr.length; i++) {
+            List<Integer> temp = new ArrayList<>();
+            int sum = 0;
+            for (int j = i; j < arr.length; j++) {
+                sum += arr[j];
+                if(sum <= k) {
+                    temp.add(arr[j]);
+                    if(currentMaxLength < temp.size()) {
+                        currentMaxLength = temp.size();
+                        result = temp;
+                    }
+                }
+            }
+
+
+
+
+        }
+        System.out.println(currentMaxLength);
+        System.out.println(result);
+        return result.size();
+    }
+
+    // Time complexity O(n)
+    // Space complexity O(n)
+    public static int numberOfSubarraySumToK(int[] nums, int k) {
+        int count = 0, sum = 0;
+        HashMap< Integer, Integer > map = new HashMap < > ();
+        map.put(0, 1);
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+            if (map.containsKey(sum - k))
+                count += map.get(sum - k);
+            map.put(sum, map.getOrDefault(sum, 0) + 1);
+        }
+        return count;
+    }
+
+    // Time complexity O(n*n)
+    // Space complexity O(1)
+    public static int numberOfSubarraySumToK2(int[] nums, int k) {
+
+        int count = 0;
+        for(int i = 0; i < nums.length; i++) {
+            int sum = 0;
+            for(int j = i; j < nums.length; j++) {
+                sum += nums[j];
+                if(sum == k) count++;
+
+            }
+        }
+
+        return count;
     }
 }

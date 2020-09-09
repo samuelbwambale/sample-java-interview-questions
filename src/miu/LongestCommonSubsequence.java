@@ -34,12 +34,7 @@ public class LongestCommonSubsequence {
         if (X[m-1] == Y[n-1])
             return 1 + recursiveLCS(X, Y, m-1, n-1);
         else
-            return max(recursiveLCS(X, Y, m, n-1), recursiveLCS(X, Y, m-1, n));
+            return Math.max(recursiveLCS(X, Y, m, n-1), recursiveLCS(X, Y, m-1, n));
     }
 
-    /* Utility function to get max of 2 integers */
-    private static int max(int a, int b)
-    {
-        return (a > b)? a : b;
-    }
 }

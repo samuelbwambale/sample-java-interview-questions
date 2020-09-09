@@ -1,7 +1,11 @@
-package algos.fja;
+package miu;
 
 import java.util.Arrays;
 
+/*
+    * Details of the problem here
+    * https://leetcode.com/discuss/interview-question/algorithms/374846/twitter-oa-2019-university-career-fair
+ */
 public class MaxEventsForCareerFair {
 
     public static void main(String[] args) {

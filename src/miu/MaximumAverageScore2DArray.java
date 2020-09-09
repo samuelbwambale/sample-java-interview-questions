@@ -21,7 +21,7 @@ public class MaximumAverageScore2DArray {
         Map<String, List<Integer>> map = new HashMap<>();
         for (int i = 0; i < scores.length; i++) {
             if(!map.containsKey(scores[i][0])){
-                map.put(scores[i][0], new ArrayList<Integer>());
+                map.put(scores[i][0], new ArrayList<>());
             }
             map.get(scores[i][0]).add(Integer.parseInt(scores[i][1]));
         }
@@ -112,4 +112,5 @@ public class MaximumAverageScore2DArray {
             System.out.println();
         }
     }
+
 }

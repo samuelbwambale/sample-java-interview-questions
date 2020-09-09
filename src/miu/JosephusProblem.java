@@ -17,6 +17,10 @@ Finally, the person at position 5 is killed. So the person at position 3 survive
 
 If n = 7 and k = 3, then the safe position is 4. The persons at positions 3, 6, 2, 7, 5, 1 are killed in order,
 and person at position 4 survives.
+
+Approach – In the algorithm, we use sum variable to find out the chair to be removed.
+The current chair position is calculated by adding the chair count K to the previous position
+i.e. sum and modulus of the sum. At last we return sum+1 as numbering starts from 1 to N.
  */
 public class JosephusProblem {
     public static void main(String[] args) {
@@ -38,7 +42,6 @@ public class JosephusProblem {
         {
             sum = (sum + k) % i;
         }
-
         return sum+1;
     }
 }
