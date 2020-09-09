@@ -20,8 +20,9 @@ without creating any instance of the class
 
 public class HelloWorld {
 
-    private int x;
-    private final String y;
+    private static int x;
+    private static boolean k;
+    private static String y;
 
     // static means there is only one copy of the variable in memory shared by all instances of the class.
     // The final keyword just means the value can't be changed. Without final,
@@ -30,6 +31,10 @@ public class HelloWorld {
     private List<String> array;
 
     public static void main(String[] args) {
+
+        System.out.println(x); // 0
+        System.out.println(k); // false
+        System.out.println(y); // null
         System.out.println(HELLOWORLD);
     }
 
@@ -47,11 +52,9 @@ public class HelloWorld {
     }
 
     public void addString(String str) {
-        if (this.array != null) this.array.add(str);
-        else {
-            this.array = new ArrayList<>();
+        if (this.array == null) this.array.add(str);
             this.array.add(str);
-        }
+
     }
 
 }

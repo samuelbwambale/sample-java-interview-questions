@@ -32,9 +32,21 @@ public class MergeSortedArrays {
         while (i < arr1.length)
             mergedArray[k++] = arr1[i++];
 
+//        if(i < arr1.length -1) {
+//            for (int l = i; l < arr1.length; l++) {
+//                mergedArray[k++] = arr1[i++];
+//            }
+//        }
+
         // save remaining elements of arr2
         while (j < arr2.length)
             mergedArray[k++] = arr2[j++];
+
+//        if(j < arr2.length -1) {
+//            for (int l = j; l < arr2.length; l++) {
+//                mergedArray[k++] = arr2[j++];
+//            }
+//        }
 
         return mergedArray;
     }

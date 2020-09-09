@@ -12,9 +12,9 @@ public class FibonacciSeries {
     public static void main(String[] args) {
         generateFibonacciSeries(5);
         System.out.println();
-        System.out.println(generateFibonacci(5));
+        System.out.println(generateFibonacci(3));
         System.out.println(calculateFibonacciByRecursion(5));
-        System.out.println(calculateFibonacciWhileLoop(5));
+        System.out.println(calculateFibonacciWhileLoop(1));
         System.out.println(fibWithDynamicProg(5));
         System.out.println(fibRecursionWithMemoization(5));
     }

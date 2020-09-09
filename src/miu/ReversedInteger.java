@@ -8,8 +8,8 @@ package miu;
 public class ReversedInteger {
 	public static void main(String[] args) {
 		int a = 101112;
-		int output = reversedInteger(a);
-		System.out.println(output);
+		System.out.println(reversedInteger(a));
+		System.out.println(reversedInteger2(a));
 	}
 
 	static int reversedInteger(int num) {
@@ -20,5 +20,15 @@ public class ReversedInteger {
 			num = num / 10;
 		}
 		return reverse;
+	}
+
+	static int reversedInteger2(int num) {
+		String reverse = "";
+		while (num > 0) {
+			String digit = Integer.toString(num%10);
+			reverse += digit;
+			num = num / 10;
+		}
+		return Integer.parseInt(reverse);
 	}
 }

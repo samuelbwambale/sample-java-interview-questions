@@ -6,10 +6,10 @@ Recall a prime number is a +ve integer greater than 1 whose only factors are 1 a
 */
 public class PrimeCount {
 	public static void main(String[] args) {
-		int q = -10;
-		int r = -190;
-		int result = primeCount(q, r);
-		System.out.println(result);
+		int q = 1;
+		int r = 48;
+		System.out.println(primeCount(q, r));
+		System.out.println(primeCount2(q, r));
 	}
 
 	static int primeCount(int a, int b) {
@@ -32,5 +32,25 @@ public class PrimeCount {
 		}
 		return result;
 
+	}
+
+	static int primeCount2(int a, int b) {
+		int count = 0;
+		for (int i = a; i <= b; i++) {
+			if(i > 1 && isPrime(i)) count++;
+		}
+		return count;
+	}
+
+	static boolean isPrime(int n) {
+		if(n <= 1) return false;
+
+		if(n == 2 || n == 3) return true;
+
+		for (int i = 2; i*i <=n ; i++) {
+			if(n%i == 0) return false;
+		}
+
+		return true;
 	}
 }
