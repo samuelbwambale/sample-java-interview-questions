@@ -18,12 +18,6 @@ public class IsSuperArray {
 
     }
 
-
-
-
-
-
-
     int isSuper(int[] a) {
         if (a == null) return 0;
 
@@ -38,20 +32,5 @@ public class IsSuperArray {
         return 1;
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

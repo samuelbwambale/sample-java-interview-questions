@@ -33,11 +33,6 @@ public class Fill {
 
     }
 
-
-
-
-
-
     int[] fill(int[] arr, int k, int n) {
         if (arr == null) return null;
         if (k < 1 || n < 1) return null;
@@ -55,23 +50,6 @@ public class Fill {
 
         return result;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public static int[] fill2(int[] arr, int k, int n) {
 
