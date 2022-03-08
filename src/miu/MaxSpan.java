@@ -17,7 +17,7 @@ import java.util.Map;
 
 public class MaxSpan {
     public static void main(String[] args) {
-        int[] nums = {1, 4, 2, 1, 4, 1, 4};
+        int[] nums = {1, 4, 2, 1, 4, 1, 4}; // idx 1.... idx 4
         System.out.println(maxSpan(nums));
     }
 
