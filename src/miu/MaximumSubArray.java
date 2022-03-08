@@ -11,7 +11,7 @@ public class MaximumSubArray {
     A subarray is a contiguous part of an array.
      */
     public static int maxSubArray(int[] nums) {
-        if (nums.length == 0 || nums == null) return 0;
+        if (nums.length == 0) return 0;
         if (nums.length == 1) return nums[0];
 
         int max_sum = nums[0];
